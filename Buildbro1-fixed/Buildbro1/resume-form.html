@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BuildBro — Resume Intake Form</title>
+  <meta name="description" content="BuildBro ATS Resume Intake Form. Share your project, education, and target job details. Get your professional ATS resume in 24-48 hours. Pay only after preview.">
+  <meta name="theme-color" content="#0a0f1c">
+  
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Shared BuildBro Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="form-body">
+<div class="wrap">
+
+  <!-- Sticky Step Progress Bar -->
+  <div id="pbar">
+    <div class="ptext">
+      <span id="steptext"><b>Step 1 of 10</b> — Attach files</span>
+      <span id="pcount">1 / 10</span>
+    </div>
+    <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+  </div>
+
+  <!-- Top Back Navigation Link -->
+  <a href="index.html" class="back-link">← Back to BuildBro</a>
+
+  <!-- Header -->
+  <div class="header">
+    <a href="index.html" aria-label="BuildBro Home">
+      <img src="logo.png" alt="BuildBro Logo" width="84" height="84">
+    </a>
+    <h1>Build<span>Bro</span></h1>
+    <div class="sub">RESUME · WEB</div>
+    <div class="tag">Resume Intake Form — fill, attach, submit. Your professional ATS-friendly resume in 24-48 hrs!</div>
+  </div>
+
+  <!-- How It Works Banner -->
+  <div class="steps">
+    <b>How it works:</b> 1) Attach your old resume if you have one (any format works). 2) Fill the form (2-3 mins). 3) Tap SUBMIT — done! We reply with a watermarked PREVIEW in 24-48 hrs. <b>See it. Like it. Then pay</b> (from Rs.200). 2 free revisions included!<br>
+    <b>FREE with every resume:</b> ATS-friendly format + PDF &amp; editable Word copy + free minor updates for 6 months!
+  </div>
+
+  <!-- Main Intake Form (Web3Forms) -->
+  <form id="intakeForm" method="POST" action="https://api.web3forms.com/submit" enctype="multipart/form-data">
+    <input type="hidden" name="access_key" value="f8c57a54-3aab-47cf-ad28-55754c427d7d">
+    <input type="hidden" name="subject" value="New Resume Order - BuildBro">
+    <input type="hidden" name="from_name" value="BuildBro Website">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+    <!-- Step 1: Attach Files -->
+    <div class="section">
+      <h2><span class="n">1</span>Attach Files (start here!)</h2>
+      <label class="upload-box" id="uploadBox" for="files" style="display:block;cursor:pointer">
+        <div class="icon">📎</div>
+        <div class="t1">Tap to attach your files</div>
+        <div class="t2">Old resume (PDF, Word, photo) + college format + marksheet — ALL formats supported, multiple files ok</div>
+        <div class="t2" style="color:#fbbf24;font-weight:700">Each file must be under 5MB</div>
+        <input type="file" id="files" name="attachments" multiple accept=".pdf,.doc,.docx,.txt,image/*" onchange="showFiles(this,'filelist')">
+        <div class="filelist" id="filelist"></div>
+      </label>
+      <label>Passport-size photo <span class="opt">(optional — only if your college format requires it)</span></label>
+      <label class="upload-box" for="photofiles" style="display:block;cursor:pointer;padding:14px">
+        <div class="t1" style="font-size:14px">📷 Tap to attach photo (under 5MB)</div>
+        <input type="file" id="photofiles" name="photo" accept="image/*" onchange="showFiles(this,'photolist')">
+        <div class="filelist" id="photolist"></div>
+      </label>
+      <div class="note"><b>No resume yet?</b> No problem — simply fill the fields below and submit!</div>
+      <label>Or paste your existing resume content here <span class="opt">(optional)</span></label>
+      <textarea id="f_oldresume" name="old_resume_pasted" placeholder="Copy-paste everything from your old resume here..."></textarea>
+    </div>
+
+    <!-- Step 2: Personal Information -->
+    <div class="section">
+      <h2><span class="n">2</span>Personal Information</h2>
+      <label>Full Name (as on resume) *</label>
+      <input id="f_name" name="name" type="text" required placeholder="e.g. Suthir Kumar">
+      <div class="row">
+        <div>
+          <label>Phone / WhatsApp *</label>
+          <input id="f_phone" name="phone" type="tel" required placeholder="98765 43210">
+        </div>
+        <div>
+          <label>City, State *</label>
+          <input id="f_city" name="city" type="text" required placeholder="e.g. Coimbatore, TN">
+        </div>
+      </div>
+      <label>Email ID *</label>
+      <input id="f_email" name="email" type="email" required placeholder="you@gmail.com">
+      <label>LinkedIn link <span class="opt">(optional)</span></label>
+      <input id="f_linkedin" name="linkedin" type="text" placeholder="linkedin.com/in/...">
+      <label>GitHub / Portfolio link <span class="opt">(optional — great for tech roles)</span></label>
+      <input id="f_github" name="github" type="text" placeholder="github.com/...">
+      <div class="row">
+        <div>
+          <label>Date of Birth <span class="opt">(optional)</span></label>
+          <input id="f_dob" name="dob" type="text" placeholder="DD/MM/YYYY">
+        </div>
+        <div>
+          <label>Father's Name <span class="opt">(optional)</span></label>
+          <input id="f_father" name="father_name" type="text" placeholder="Some college formats need this">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Education -->
+    <div class="section">
+      <h2><span class="n">3</span>Education</h2>
+      <label>Degree + Branch + College *</label>
+      <input id="f_degree" name="degree_college" type="text" required placeholder="e.g. B.Tech CSE, XYZ College of Engineering">
+      <div class="row">
+        <div>
+          <label>Graduation Year *</label>
+          <input id="f_year" name="grad_year" type="text" required placeholder="2026">
+        </div>
+        <div>
+          <label>CGPA / Percentage *</label>
+          <input id="f_cgpa" name="cgpa" type="text" required placeholder="8.5">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>12th % *</label>
+          <input id="f_12" name="twelfth_pct" type="text" required placeholder="89%">
+        </div>
+        <div>
+          <label>10th % *</label>
+          <input id="f_10" name="tenth_pct" type="text" required placeholder="92%">
+        </div>
+      </div>
+      <label>Semester-wise CGPA <span class="opt">(mass recruiters like TCS ask this)</span></label>
+      <input id="f_sems" name="semester_cgpas" type="text" placeholder="e.g. Sem1: 8.2, Sem2: 8.5 ... (or NA)">
+      <label>Current backlogs / arrears *</label>
+      <input id="f_backlog" name="backlogs" type="text" required placeholder="0 / none">
+      <label>Education gap? (year drop) *</label>
+      <input id="f_gap" name="education_gap" type="text" required placeholder="no gap">
+      <label>Languages known *</label>
+      <input id="f_langs" name="languages" type="text" required placeholder="e.g. English, Tamil, Hindi">
+    </div>
+
+    <!-- Step 4: Projects -->
+    <div class="section">
+      <h2><span class="n">4</span>Projects (most important!)</h2>
+      <label>Project 1 — Name *</label>
+      <input id="f_p1name" name="p1_name" type="text" required placeholder="e.g. Student Result Portal">
+      <label>What it does (2 lines) *</label>
+      <textarea id="f_p1desc" name="p1_desc" required placeholder="Web app that displays semester results with performance analytics..."></textarea>
+      <label>Tools / Technologies *</label>
+      <input id="f_p1tech" name="p1_tech" type="text" required placeholder="e.g. React, Node.js, MySQL">
+      <label>Your role + result <span class="opt">(numbers if possible)</span></label>
+      <input id="f_p1role" name="p1_role" type="text" placeholder="e.g. Led team of 3, used by 500+ students">
+      
+      <label>Project 2 — Name <span class="opt">(optional)</span></label>
+      <input id="f_p2name" name="p2_name" type="text" placeholder="Project 2 name">
+      <label>What it does + tools + your role</label>
+      <textarea id="f_p2desc" name="p2_desc" placeholder="Short description, tools used, and your contribution..."></textarea>
+      
+      <label>Project 3 — Name <span class="opt">(optional)</span></label>
+      <input id="f_p3name" name="p3_name" type="text" placeholder="Project 3 name">
+      <label>What it does + tools + your role</label>
+      <textarea id="f_p3desc" name="p3_desc" placeholder="Short description, tools used, and your contribution..."></textarea>
+    </div>
+
+    <!-- Step 5: Internships / Training -->
+    <div class="section">
+      <h2><span class="n">5</span>Internships / In-plant Training</h2>
+      <label>Internship / In-plant training — company + role <span class="opt">(write NA if none)</span></label>
+      <input id="f_intern" name="internship" type="text" placeholder="e.g. In-plant training, BHEL / Web dev intern, ABC Startups">
+      <label>Duration + what you did there</label>
+      <textarea id="f_intern2" name="internship_details" placeholder="e.g. 1 month — assisted in dashboard UI and data reporting..."></textarea>
+      <label>Internship 2 / Industrial visit <span class="opt">(optional)</span></label>
+      <input id="f_intern3" name="internship2" type="text" placeholder="Second internship or industrial visit">
+      <label>Duration + what you did</label>
+      <textarea id="f_intern4" name="internship2_details" placeholder="Short description of second internship..."></textarea>
+    </div>
+
+    <!-- Step 6: Skills -->
+    <div class="section">
+      <h2><span class="n">6</span>Skills</h2>
+      <label>Technical Skills *</label>
+      <textarea id="f_skillstech" name="tech_skills" required placeholder="CSE: Python, Java, SQL, React | Mech: AutoCAD, SolidWorks, ANSYS | Civil: STAAD Pro, ETABS | EEE: MATLAB, PLC"></textarea>
+      <label>Other Skills <span class="opt">(optional)</span></label>
+      <textarea id="f_skillsother" name="other_skills" placeholder="e.g. Git, Agile, Public speaking, Technical writing"></textarea>
+    </div>
+
+    <!-- Step 7: Certifications -->
+    <div class="section">
+      <h2><span class="n">7</span>Certifications / Courses</h2>
+      <label>Courses with platform + year <span class="opt">(one per line, NA if none)</span></label>
+      <textarea id="f_certs" name="certifications" placeholder="e.g. Python for Everybody — Coursera 2024&#10;AWS Cloud Practitioner — Amazon 2024"></textarea>
+    </div>
+
+    <!-- Step 8: Achievements & Activities -->
+    <div class="section">
+      <h2><span class="n">8</span>Achievements &amp; Activities</h2>
+      <label>Hackathons / competitions <span class="opt">(name + prize + year)</span></label>
+      <textarea id="f_hack" name="hackathons" placeholder="e.g. Smart India Hackathon — 2nd prize 2025"></textarea>
+      <label>Positions of responsibility <span class="opt">(club, fest, captain)</span></label>
+      <textarea id="f_por" name="por" placeholder="e.g. Technical Club Secretary, Placement Coordinator"></textarea>
+      <label>Sports / cultural achievements <span class="opt">(optional)</span></label>
+      <input id="f_sports" name="sports" type="text" placeholder="e.g. College cricket team, zonal winner">
+      <label>Publications / patents <span class="opt">(optional)</span></label>
+      <input id="f_pubs" name="publications" type="text" placeholder="NA for most">
+      <label>Hobbies <span class="opt">(2-3 max)</span></label>
+      <input id="f_hobbies" name="hobbies" type="text" placeholder="e.g. Chess, blogging, badminton">
+    </div>
+
+    <!-- Step 9: Target Role & Style -->
+    <div class="section">
+      <h2><span class="n">9</span>Target (very important!)</h2>
+      <label>What role are you applying for? *</label>
+      <input id="f_target" name="target_role" type="text" required placeholder="e.g. Software Developer / Graduate Trainee / Analyst">
+      <label>Which companies? *</label>
+      <input id="f_companies" name="target_companies" type="text" required placeholder="e.g. TCS, Infosys, Cognizant, Zoho, Campus drives">
+      <label>GATE Score / Rank <span class="opt">(if applying to PSUs via GATE, else NA)</span></label>
+      <input id="f_gate" name="gate_score" type="text" placeholder="e.g. GATE 2026 — Score 450 (or NA)">
+      <label>Which PSU / Core companies targeting? <span class="opt">(optional)</span></label>
+      <input id="f_psu" name="psu_companies" type="text" placeholder="e.g. BHEL, ONGC, NTPC / L&amp;T, TVS, Ashok Leyland">
+      <label>Willing to relocate anywhere in India? *</label>
+      <div class="radios" id="relocate">
+        <div class="radio-opt sel" data-val="Yes" onclick="pick(this)">Yes</div>
+        <div class="radio-opt" data-val="No" onclick="pick(this)">No</div>
+      </div>
+      <input type="hidden" name="relocate" id="relocate_val" value="Yes">
+      <label>Does your college require a specific resume format?</label>
+      <input id="f_collegefmt" name="college_format" type="text" placeholder="No / describe (or attach the format file above)">
+      <label>Resume style you want?</label>
+      <div class="radios wrap4" id="style">
+        <div class="radio-opt sel" data-val="1-page modern" onclick="pick(this)">1-page modern</div>
+        <div class="radio-opt" data-val="2-column stylish" onclick="pick(this)">2-column</div>
+        <div class="radio-opt" data-val="Exactly college format" onclick="pick(this)">College format</div>
+        <div class="radio-opt" data-val="You decide - suggest best" onclick="pick(this)">You decide best</div>
+      </div>
+      <input type="hidden" name="resume_style" id="style_val" value="1-page modern">
+      <label>Anything specific to highlight? <span class="opt">(optional)</span></label>
+      <input id="f_highlight" name="highlight" type="text" placeholder="e.g. Highlight my full-stack MERN projects">
+      <label>Short career objective <span class="opt">(optional — leave blank, we'll write one for you!)</span></label>
+      <textarea id="f_objective" name="career_objective" placeholder="Leave empty — we'll craft the perfect placement objective tailored to your target companies!"></textarea>
+    </div>
+
+    <!-- Step 10: Final Details & Urgency -->
+    <div class="section">
+      <h2><span class="n">10</span>Final Details</h2>
+      <label>How did you find us?</label>
+      <input id="f_source" name="source" type="text" placeholder="Instagram / Friend / WhatsApp / College campus">
+      <label>When do you need it? *</label>
+      <div class="radios" id="urgent">
+        <div class="radio-opt sel" data-val="Standard (24-48 hrs)" onclick="pick(this)">Standard (24-48 hrs)</div>
+        <div class="radio-opt" data-val="URGENT (same day +Rs.100)" onclick="pick(this)">URGENT (same day +Rs.100)</div>
+      </div>
+      <input type="hidden" name="urgency" id="urgent_val" value="Standard (24-48 hrs)">
+      
+      <label>Choose your Resume Package *</label>
+      <div class="radios wrap4" id="resumepackage">
+        <div class="radio-opt sel" data-val="Basic Resume — Rs.200" onclick="pick(this)">
+          <strong>Basic Resume</strong><br>
+          <span style="font-size:12px;opacity:0.85;">Rs.200 · Single-page ATS standard</span>
+        </div>
+        <div class="radio-opt" data-val="Resume + Cover Letter — Rs.400" onclick="pick(this)">
+          <strong>Resume + Cover Letter</strong><br>
+          <span style="font-size:12px;opacity:0.85;">Rs.400 · Custom tailored job letter</span>
+        </div>
+        <div class="radio-opt" data-val="Resume + LinkedIn — Rs.600 [POPULAR]" onclick="pick(this)">
+          <span style="display:inline-block;background:var(--accent-gold);color:#0a0f1c;font-size:10px;font-weight:900;padding:1px 6px;border-radius:4px;margin-bottom:3px;letter-spacing:0.5px;">POPULAR</span><br>
+          <strong>Resume + LinkedIn</strong><br>
+          <span style="font-size:12px;opacity:0.85;">Rs.600 · Profile rewrite bundle</span>
+        </div>
+        <div class="radio-opt" data-val="Full Package — Rs.800" onclick="pick(this)">
+          <strong>Full Package</strong><br>
+          <span style="font-size:12px;opacity:0.85;">Rs.800 · All-in-one placement kit</span>
+        </div>
+      </div>
+      <input type="hidden" name="resume_package" id="resumepackage_val" value="Basic Resume — Rs.200">
+
+      <label>LinkedIn headline keywords <span class="opt">(optional — if you chose Resume + LinkedIn or Full Package)</span></label>
+      <input id="f_likeywords" name="linkedin_keywords" type="text" placeholder="e.g. Python, SQL, Cloud, Full-stack developer">
+
+      <label>Tailor resume to a specific job? (JD tailoring +Rs.100)</label>
+      <div class="radios" id="jdtailor">
+        <div class="radio-opt sel" data-val="No, thanks" onclick="pick(this)">No, thanks</div>
+        <div class="radio-opt" data-val="Yes (+Rs.100)" onclick="pick(this)">Yes (+Rs.100)</div>
+      </div>
+      <input type="hidden" name="jd_tailoring" id="jdtailor_val" value="No, thanks">
+
+      <label>Paste the job description here <span class="opt">(only if you chose Yes above)</span></label>
+      <textarea id="f_jd" name="job_description" placeholder="Copy-paste the full job description you are targeting — we will match your resume keywords to it"></textarea>
+      <div class="note"><b>Why JD tailoring?</b> Automated ATS bots scan for exact keywords in the recruiter's post — tailored resumes clear the filter and reach HR!</div>
+
+      <label>Mock interview questions sheet? (+Rs.100)</label>
+      <div class="radios" id="mockq">
+        <div class="radio-opt sel" data-val="No, thanks" onclick="pick(this)">No, thanks</div>
+        <div class="radio-opt" data-val="Yes (+Rs.100)" onclick="pick(this)">Yes (+Rs.100)</div>
+      </div>
+      <input type="hidden" name="mock_interview" id="mockq_val" value="No, thanks">
+      <div class="note"><b>Mock Qs includes:</b> 10 most-likely technical &amp; HR interview questions based on YOUR resume and projects, with guidance on how to answer.</div>
+
+      <label>Preferred contact method? *</label>
+      <div class="radios" id="contactpref">
+        <div class="radio-opt sel" data-val="WhatsApp" onclick="pick(this)">WhatsApp</div>
+        <div class="radio-opt" data-val="Call" onclick="pick(this)">Call</div>
+        <div class="radio-opt" data-val="Email" onclick="pick(this)">Email</div>
+      </div>
+      <input type="hidden" name="contact_pref" id="contactpref_val" value="WhatsApp">
+    </div>
+
+    <div class="note" style="text-align:center">
+      🔒 <b>100% confidential</b> — your details remain private, used only for crafting your resume. Your responses auto-save in this browser, so nothing is lost if you refresh.
+    </div>
+
+    <button class="btn-submit" type="submit">SUBMIT FORM →</button>
+  </form>
+
+  <!-- Submission Success Card -->
+  <div id="success">
+    <h3>🎉 Form submitted! We got your details.</h3>
+    <p>We will review your information and reach out within 24 hours with your preview draft. See it. Like it. Then pay!</p>
+    <div class="btn-row">
+      <button class="btn2 btn-wa" type="button" onclick="sendWA()">💬 Also Notify via WhatsApp</button>
+      <button class="btn2 btn-copy" type="button" onclick="copyText()">📋 Copy Summary</button>
+    </div>
+  </div>
+
+  <!-- Form Footer -->
+  <div class="footer">
+    <b>BuildBro</b> · See it. Like it. Then pay · 2 free revisions included · <span>@buildbro.in</span><br>
+    Resume from Rs.200 · Website from Rs.3,000<br>
+    Packages: Basic Resume Rs.200 · Resume + Cover Letter Rs.400 · Resume + LinkedIn Rs.600 · Full Package Rs.800<br>
+    Optional Add-ons: JD tailoring +Rs.100 · Mock interview Qs +Rs.100
+  </div>
+</div>
+
+<script>
+// Single-select radio option picker
+function pick(el) {
+  var sibs = el.parentElement.children;
+  for (var i = 0; i < sibs.length; i++) sibs[i].classList.remove('sel');
+  el.classList.add('sel');
+  var hiddenId = el.parentElement.id + '_val';
+  var h = document.getElementById(hiddenId);
+  if (h) h.value = el.getAttribute('data-val') || el.textContent.trim();
+  saveDraft();
+}
+
+// File attachment size validation
+var MAX_MB = 5;
+function showFiles(input, listId) {
+  var list = document.getElementById(listId);
+  var ok = [], bad = [];
+  for (var i = 0; i < input.files.length; i++) {
+    var f = input.files[i];
+    if (f.size > MAX_MB * 1024 * 1024) bad.push(f.name); else ok.push(f.name);
+  }
+  if (bad.length) {
+    list.textContent = '⚠ Too big (over ' + MAX_MB + 'MB): ' + bad.join(', ') + ' — please compress or send via WhatsApp';
+    list.classList.add('warn');
+    if (bad.length === input.files.length) input.value = '';
+    else list.textContent += ' (files under 5MB kept: ' + ok.join(', ') + ')';
+  } else if (ok.length) {
+    list.textContent = '✓ Attached: ' + ok.join(', ');
+    list.classList.remove('warn');
+  } else {
+    list.textContent = '';
+  }
+  var box = input.closest('.upload-box');
+  if (box) box.classList.add('sel');
+}
+
+// Format submission summary for WhatsApp or Clipboard
+function collectText() {
+  function val(id) { var e = document.getElementById(id); return e ? (e.value || '').trim() : ''; }
+  var t = 'BUILDBRO RESUME FORM\n====================\n' +
+    'Name: ' + val('f_name') + '\n' +
+    'Phone: ' + val('f_phone') + '\n' +
+    'Email: ' + val('f_email') + '\n' +
+    'City: ' + val('f_city') + '\n' +
+    'Degree: ' + val('f_degree') + ' | Year: ' + val('f_year') + ' | CGPA: ' + val('f_cgpa') + '\n' +
+    '12th: ' + val('f_12') + ' | 10th: ' + val('f_10') + '\n' +
+    'Backlogs: ' + val('f_backlog') + ' | Gap: ' + val('f_gap') + '\n' +
+    'Project 1: ' + val('f_p1name') + ' (' + val('f_p1tech') + ')\n' +
+    'Tech skills: ' + val('f_skillstech') + '\n' +
+    'Target: ' + val('f_target') + ' @ ' + val('f_companies') + '\n' +
+    'Package: ' + val('resumepackage_val') + '\n' +
+    'Urgency: ' + val('urgent_val') + ' | JD Tailoring: ' + val('jdtailor_val') + '\n' +
+    'Mock Qs: ' + val('mockq_val') + ' | Style: ' + val('style_val');
+  if (val('f_linkedin') || val('f_github')) {
+    t += '\nLinks: ' + [val('f_linkedin'), val('f_github')].filter(Boolean).join(' | ');
+  }
+  if (val('f_intern')) {
+    t += '\nInternship: ' + val('f_intern');
+  }
+  return t;
+}
+
+// Consistent WhatsApp number across BuildBro
+var WA_NUMBER = '919025175386';
+
+// Form submission handler
+document.getElementById('intakeForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var data = new FormData(form);
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+    .then(function(res) { return res.json().then(function(j) { if (!res.ok || !j.success) throw new Error(j.message || 'failed'); return j; }); })
+    .then(function() {
+      try { localStorage.removeItem(FORM_KEY); } catch (err) {}
+      form.style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+      document.getElementById('success').scrollIntoView({ behavior: 'smooth' });
+    })
+    .catch(function() {
+      alert('Form transmission failed. Please message us directly on WhatsApp!');
+    });
+});
+
+function sendWA() {
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(collectText()), '_blank');
+}
+
+function copyText() {
+  var txt = collectText();
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(function() { alert('Summary copied to clipboard!'); });
+  } else {
+    alert('Copied summary:\n\n' + txt);
+  }
+}
+
+// LocalStorage Draft Persistence
+var FORM_KEY = 'buildbro_intake_draft';
+var saveTimer = null;
+
+function saveDraft() {
+  var d = {};
+  var els = document.querySelectorAll('#intakeForm input, #intakeForm textarea');
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    if (el.type === 'file') continue;
+    if (['form-name','bot-field','access_key','subject','from_name','botcheck'].indexOf(el.name) !== -1) continue;
+    d[el.id || el.name] = el.value;
+  }
+  try { localStorage.setItem(FORM_KEY, JSON.stringify(d)); } catch (e) {}
+}
+
+function restoreDraft() {
+  var d = {};
+  try { d = JSON.parse(localStorage.getItem(FORM_KEY) || '{}'); } catch (e) { return; }
+  var had = false;
+  Object.keys(d).forEach(function(k) {
+    var el = document.getElementById(k);
+    if (el && el.type !== 'file') { el.value = d[k]; had = true; }
+  });
+  ['relocate','urgent','resumepackage','jdtailor','mockq','contactpref','style'].forEach(function(g) {
+    var hv = document.getElementById(g + '_val');
+    if (hv && hv.value) {
+      var group = document.getElementById(g);
+      if (group) {
+        var kids = group.children;
+        for (var i = 0; i < kids.length; i++) {
+          var v = kids[i].getAttribute('data-val') || kids[i].textContent.trim();
+          kids[i].classList.toggle('sel', v === hv.value);
+        }
+      }
+    }
+  });
+  if (had) {
+    var n = document.createElement('div');
+    n.className = 'note';
+    n.style.margin = '14px 0';
+    n.innerHTML = '✅ <b>Draft restored</b> — your previous answers were safely restored. Attach files again if needed.';
+    var stepsEl = document.querySelector('.steps');
+    if (stepsEl) stepsEl.after(n);
+  }
+}
+
+// Read URL "package" parameter and auto-select matching package
+function applyUrlPackage() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var pkg = params.get('package');
+    if (!pkg) return;
+    pkg = pkg.toLowerCase().trim();
+    var group = document.getElementById('resumepackage');
+    if (!group) return;
+    var options = group.children;
+    var targetEl = null;
+
+    for (var i = 0; i < options.length; i++) {
+      var opt = options[i];
+      var val = (opt.getAttribute('data-val') || '').toLowerCase();
+      if (
+        (pkg === 'basic' && val.indexOf('basic') !== -1) ||
+        ((pkg === 'cover-letter' || pkg === 'cover') && val.indexOf('cover') !== -1) ||
+        ((pkg === 'linkedin' || pkg === 'linked-in') && val.indexOf('linkedin') !== -1) ||
+        (pkg === 'full' && val.indexOf('full') !== -1)
+      ) {
+        targetEl = opt;
+        break;
+      }
+    }
+
+    if (targetEl) {
+      pick(targetEl);
+    }
+  } catch (err) {}
+}
+
+function debounceSave() { clearTimeout(saveTimer); saveTimer = setTimeout(saveDraft, 400); }
+document.getElementById('intakeForm').addEventListener('input', debounceSave);
+document.getElementById('intakeForm').addEventListener('change', saveDraft);
+restoreDraft();
+applyUrlPackage();
+
+// Scroll Step Indicator
+var SECTIONS = document.querySelectorAll('.section');
+var STEP_NAMES = ['Attach files','Personal info','Education','Projects','Internships','Skills','Certifications','Achievements','Target','Final details'];
+
+function updateStep() {
+  var y = window.scrollY + 160, idx = 0;
+  for (var i = 0; i < SECTIONS.length; i++) {
+    if (SECTIONS[i].offsetTop <= y) idx = i;
+  }
+  document.getElementById('steptext').innerHTML = '<b>Step ' + (idx + 1) + ' of ' + SECTIONS.length + '</b> — ' + STEP_NAMES[idx];
+  document.getElementById('pcount').textContent = (idx + 1) + ' / ' + SECTIONS.length;
+  document.getElementById('pfill').style.width = ((idx + 1) / SECTIONS.length * 100) + '%';
+}
+
+window.addEventListener('scroll', updateStep, { passive: true });
+window.addEventListener('load', updateStep);
+</script>
+</body>
+</html>

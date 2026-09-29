@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>BuildBro — ATS Resumes & Mobile Websites | Pay After Preview</title>
+  <meta name="description" content="BuildBro crafts ATS-friendly resumes for placement students (from ₹200) and mobile-friendly websites for small businesses (from ₹3,000). See your work first, pay only after approval.">
+  <meta name="keywords" content="ATS resume building, college placement resume, TCS resume, Infosys resume, small business website, freelance web developer, pay after preview resume, BuildBro">
+  <meta name="theme-color" content="#0a0f1c">
+  
+  <!-- OpenGraph / Social Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BuildBro — Your Resume & Website, Professionally Built">
+  <meta property="og:description" content="ATS-friendly resumes for students. Custom websites for businesses. Pay only after you review your draft.">
+  <meta property="og:image" content="https://buildbro.in/og-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=Outfit:wght@400;600;700;900&family=JetBrains+Mono:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       Background Ambient Layer (Desktop: Animated Orbs + Noise, Mobile: Static)
+       ========================================================================= -->
+  <div class="bg-ambient-layer" aria-hidden="true">
+    <div class="bg-orb orb-gold"></div>
+    <div class="bg-orb orb-cyan"></div>
+    <div class="bg-orb orb-center"></div>
+  </div>
+  <div class="bg-noise-overlay" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       1. Intro / Splash Screen ("Midnight Aurora Glass" Entrance)
+       ========================================================================= -->
+  <div id="splash-screen" class="splash-overlay bb-page" role="dialog" aria-modal="true" aria-label="Welcome to BuildBro">
+    <!-- Full-Bleed Background Photo -->
+    <img
+      src="buildbro-bg.jpg"
+      alt=""
+      class="bb-backdrop"
+      width="1536"
+      height="1024"
+      aria-hidden="true"
+    >
+
+    <!-- Dark Gradient Atmosphere Overlay -->
+    <div class="bb-atmosphere" aria-hidden="true"></div>
+
+    <!-- Canvas for Rain Particle System -->
+    <canvas id="splash-rain-canvas" class="splash-rain-canvas" aria-hidden="true"></canvas>
+
+    <!-- Top Navigation / Skip Escape Hatch -->
+    <button id="splash-skip-btn" class="bb-skip" type="button" aria-label="Skip entrance animation">
+      Skip ✕
+    </button>
+
+    <!-- Main Hero Content -->
+    <div class="bb-content" id="splash-card">
+      <!-- Glowing Glass Logo Container with soft glow ring -->
+      <div class="bb-logo-wrap bb-reveal" id="splash-logo-container">
+        <div class="bb-logo-glass" aria-hidden="true"></div>
+        <img
+          src="logo.png"
+          alt="BuildBro logo"
+          id="splash-logo-img"
+          class="bb-logo-img"
+          width="150"
+          height="150"
+        >
+      </div>
+
+      <!-- Brand Headline: BuildBro with "Bro" in gold -->
+      <h1 class="bb-title bb-reveal" id="splash-title" aria-label="BuildBro">
+        Build<span class="text-gold">Bro</span>
+      </h1>
+
+      <!-- Thin glowing cyan divider line -->
+      <div class="bb-title-rule bb-reveal" aria-hidden="true"></div>
+
+      <!-- Service Subhead: RESUME · WEB -->
+      <p class="bb-subhead bb-reveal" id="splash-tagline">
+        RESUME · WEB
+      </p>
+
+      <!-- Core Value Proposition with "Then pay." in gold -->
+      <p class="bb-value bb-reveal" id="splash-phrases" aria-label="See it. Like it. Then pay.">
+        See it. Like it. <span class="text-gold">Then pay.</span>
+      </p>
+
+      <!-- Primary Interactive Pill CTA Button -->
+      <button id="splash-enter-btn" class="bb-action bb-reveal" type="button">
+        <span>Let's Build</span>
+        <span class="bb-action-arrow" aria-hidden="true">↗</span>
+      </button>
+    </div>
+
+    <!-- Bottom Accent Line -->
+    <div class="bb-bottom-line" aria-hidden="true"></div>
+  </div>
+
+  <!-- Main Website Scale-Down Arrival Wrapper -->
+  <div id="site-wrapper" class="site-wrapper">
+    <!-- =========================================================================
+         Tagline Ticker Strip (Row 1: Always on Top)
+         ========================================================================= -->
+    <div class="site-ticker-wrap" id="site-ticker" aria-label="Brand highlights ticker">
+      <div class="ticker-track">
+        <div class="ticker-group">
+          <span class="ticker-highlight">See it. Like it. Then pay.</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>ATS-Friendly Resumes</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>Custom Websites for Business</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>24-48hr Delivery</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span class="ticker-highlight">See it. Like it. Then pay.</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>ATS-Friendly Resumes</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>Custom Websites for Business</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>24-48hr Delivery</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span class="ticker-highlight">See it. Like it. Then pay.</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>ATS-Friendly Resumes</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>Custom Websites for Business</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+          <span>24-48hr Delivery</span>
+          <span class="ticker-dot" aria-hidden="true">♦</span>
+        </div>
+        <div class="ticker-group" aria-hidden="true">
+          <span class="ticker-highlight">See it. Like it. Then pay.</span>
+          <span class="ticker-dot">♦</span>
+          <span>ATS-Friendly Resumes</span>
+          <span class="ticker-dot">♦</span>
+          <span>Custom Websites for Business</span>
+          <span class="ticker-dot">♦</span>
+          <span>24-48hr Delivery</span>
+          <span class="ticker-dot">♦</span>
+          <span class="ticker-highlight">See it. Like it. Then pay.</span>
+          <span class="ticker-dot">♦</span>
+          <span>ATS-Friendly Resumes</span>
+          <span class="ticker-dot">♦</span>
+          <span>Custom Websites for Business</span>
+          <span class="ticker-dot">♦</span>
+          <span>24-48hr Delivery</span>
+          <span class="ticker-dot">♦</span>
+          <span class="ticker-highlight">See it. Like it. Then pay.</span>
+          <span class="ticker-dot">♦</span>
+          <span>ATS-Friendly Resumes</span>
+          <span class="ticker-dot">♦</span>
+          <span>Custom Websites for Business</span>
+          <span class="ticker-dot">♦</span>
+          <span>24-48hr Delivery</span>
+          <span class="ticker-dot">♦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         1. Navigation (Row 2: Sticky Directly Below Ticker)
+         ========================================================================= -->
+    <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Logo: Clean BuildBro Logo Image -->
+      <a href="#" class="brand-logo" aria-label="BuildBro Home">
+        <img src="logo.png" alt="BuildBro Logo" class="brand-logo-img" width="44" height="44">
+        <div class="brand-text-group">
+          <span class="brand-name"><span class="gradient-brand">BuildBro</span></span>
+          <span class="brand-tagline">RESUME · WEB</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#resume-pricing" class="nav-link">Resume Packages</a></li>
+          <li><a href="#website-pricing" class="nav-link">Website Packages</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav CTA & Mobile Hamburger -->
+      <div class="nav-actions">
+        <a href="https://wa.me/919025175386?text=Hi%20BuildBro!%20I'd%20like%20to%20enquire%20about%20your%20services." 
+           class="btn btn-gold btn-sm nav-cta-btn" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           data-wa-package="general-enquiry">
+          WhatsApp Us
+        </a>
+        <button id="hamburger-btn" class="hamburger-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-backdrop" class="mobile-menu-backdrop" aria-hidden="true"></div>
+  <div id="mobile-drawer" class="mobile-menu-drawer" role="dialog" aria-modal="true" aria-label="Navigation drawer">
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <img src="logo.png" alt="BuildBro Logo" class="brand-logo-img" width="38" height="38">
+        <div class="brand-text-group">
+          <span class="brand-name"><span class="gradient-brand">BuildBro</span></span>
+          <span class="brand-tagline">RESUME · WEB</span>
+        </div>
+      </div>
+      <button id="mobile-close-btn" class="mobile-menu-close" type="button" aria-label="Close menu">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="#about" class="mobile-nav-link">About Founder</a></li>
+      <li><a href="#resume-pricing" class="mobile-nav-link">Resume Pricing from Rs.200</a></li>
+      <li><a href="#website-pricing" class="mobile-nav-link">Website Packages</a></li>
+      <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+      <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <a href="https://wa.me/919025175386?text=Hi%20BuildBro!%20I'd%20like%20to%20chat%20on%20WhatsApp." 
+         class="btn btn-gold btn-full" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         data-wa-package="general-enquiry">
+        💬 Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- =======================================================================
+         2. Hero Section
+         ======================================================================= -->
+    <section class="hero-section" id="hero">
+      <!-- Particle Constellation Background Canvas -->
+      <canvas id="hero-particles-canvas" class="hero-particles-canvas" aria-hidden="true"></canvas>
+
+      <div class="container hero-container">
+        <div class="hero-grid">
+          <!-- Left Column: Copy & Dual CTAs -->
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              PLACEMENT SEASON 2025-26 IS HERE
+            </div>
+            <h1 class="hero-headline" id="hero-headline">
+              <span class="hero-word-wrap"><span class="hero-word" style="--word-index: 0">Your</span></span>
+              <span class="hero-word-wrap"><span class="hero-word" style="--word-index: 1">Resume</span></span>
+              <span class="hero-word-wrap"><span class="hero-word" style="--word-index: 2">&amp;</span></span>
+              <span class="hero-word-wrap"><span class="hero-word" style="--word-index: 3">Website,</span></span>
+              <span class="hero-word-wrap"><span class="hero-word" style="--word-index: 4">Professionally</span></span>
+              <span class="hero-word-wrap"><span class="hero-word" style="--word-index: 5">Built</span></span>
+              <span class="hero-word-wrap"><span class="hero-word" style="--word-index: 6">with</span></span>
+              <span class="hero-word-wrap"><span class="hero-word hero-word-brand" style="--word-index: 7"><span class="gradient-brand shimmer-brand">BuildBro</span>.</span></span>
+            </h1>
+            <p class="hero-subtext">
+              ATS-friendly resumes for students. Custom websites for businesses. One brand, two services.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#resume-pricing" class="btn btn-gold btn-lg magnetic-btn" data-magnetic="true">
+                Get Resume — from Rs.200
+              </a>
+              <a href="#website-pricing" class="btn btn-cyan-outline btn-lg magnetic-btn" data-magnetic="true">
+                Get Website — from Rs.3,000
+              </a>
+            </div>
+            <!-- Honest Launch-Phase Trust Badge (NO fake star ratings) -->
+            <div class="hero-trust-bar">
+              <span class="trust-item">⚡ Fast Delivery</span>
+              <span class="trust-bullet">·</span>
+              <span class="trust-item">🔒 See It First, Pay Later</span>
+              <span class="trust-bullet">·</span>
+              <span class="trust-item">🎯 ATS-Friendly</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Mockup Showcase (Desktop: Dual Layered Cards, Mobile: Front Card) -->
+          <div class="hero-mockup-wrap">
+            <div class="mockup-card-stack">
+              <!-- Back Card: ATS Resume Mockup (Desktop Only) with Soft Accent Glow -->
+              <div class="mockup-card-holder card-holder-resume" aria-hidden="true">
+                <div class="card-ambient-glow glow-gold" aria-hidden="true"></div>
+                <div class="mockup-card mockup-resume">
+                  <div class="resume-header">
+                    <div class="resume-name"></div>
+                    <div class="resume-role"></div>
+                  </div>
+                  <div class="resume-body">
+                    <div class="resume-section-title"></div>
+                    <div class="resume-line w-90"></div>
+                    <div class="resume-line w-75"></div>
+                    <div class="resume-line w-85"></div>
+                    <div class="resume-tags">
+                      <span class="resume-tag-pill">Python</span>
+                      <span class="resume-tag-pill">SQL</span>
+                      <span class="resume-tag-pill">React</span>
+                      <span class="resume-tag-pill">ATS 95+</span>
+                    </div>
+                    <div style="margin-top: 14px;">
+                      <div class="resume-section-title" style="width: 80px;"></div>
+                      <div class="resume-line w-85"></div>
+                      <div class="resume-line w-75"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Front Card: Website Mockup with Soft Accent Glow -->
+              <div class="mockup-card-holder card-holder-browser">
+                <div class="card-ambient-glow glow-cyan" aria-hidden="true"></div>
+                <div class="mockup-card mockup-browser">
+                  <div class="browser-header">
+                    <div class="browser-dots">
+                      <span class="browser-dot dot-red"></span>
+                      <span class="browser-dot dot-yellow"></span>
+                      <span class="browser-dot dot-green"></span>
+                    </div>
+                    <div class="browser-url-bar">https://mybusiness.in</div>
+                  </div>
+                  <div class="browser-content">
+                    <div class="mini-web-hero">
+                      <div class="mini-pill"></div>
+                      <div class="mini-title-line"></div>
+                      <div class="mini-text-line"></div>
+                      <div class="mini-btn"></div>
+                    </div>
+                    <div class="mini-web-grid">
+                      <div class="mini-box">
+                        <div class="mini-box-icon"></div>
+                        <div class="mini-box-bar"></div>
+                      </div>
+                      <div class="mini-box">
+                        <div class="mini-box-icon" style="background: rgba(245, 158, 11, 0.2);"></div>
+                        <div class="mini-box-bar"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Desktop Floating Ambient Badges -->
+              <div class="floating-badge badge-resume-score">
+                <span>📄 ATS Score 95+ Guaranteed</span>
+              </div>
+              <div class="floating-badge badge-responsive-check">
+                <span>📱 100% Mobile Optimized</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. Stats Bar (Honest Launch-Phase, No Fake Numbers)
+         ======================================================================= -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item reveal-on-scroll">
+            <span class="stat-icon">⏱️</span>
+            <span class="stat-label">24hr Delivery</span>
+            <span class="stat-sub">Available for urgent campus drives</span>
+          </div>
+          <div class="stat-item reveal-on-scroll">
+            <span class="stat-icon">✨</span>
+            <span class="stat-label">100% Custom Work</span>
+            <span class="stat-sub">Tailored to your skills & brand</span>
+          </div>
+          <div class="stat-item reveal-on-scroll">
+            <span class="stat-icon">🔒</span>
+            <span class="stat-label">Pay After Preview</span>
+            <span class="stat-sub">Review first, pay when satisfied</span>
+          </div>
+          <div class="stat-item reveal-on-scroll">
+            <span class="stat-icon">🔄</span>
+            <span class="stat-label">2 Free Revisions</span>
+            <span class="stat-sub">Fine-tuned until it’s perfect</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. Services Overview (Two Large Cards)
+         ======================================================================= -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag tag-neutral">What We Build</span>
+          <h2 class="section-title">Two Essential Services. One Honest Brand.</h2>
+          <p class="section-subtitle">
+            Whether you’re stepping into placement season or building digital credibility for your local business, BuildBro has you covered.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1: Resume Building (Gold Theme) -->
+          <div class="service-card card-resume reveal-on-scroll">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <span class="section-tag tag-gold" style="width: fit-content;">For College Placements</span>
+            <h3 class="service-card-title">Resume Building</h3>
+            <p class="service-card-desc">
+              Tailored for final-year college students preparing for mass recruiters and tech companies (TCS, Infosys, Cognizant, Wipro, Accenture). Designed to clear automated ATS screening filters.
+            </p>
+            <ul class="service-features-list">
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>ATS-friendly format</strong> — clean single-column structure parsed easily by recruiting software</span>
+              </li>
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>1-page optimized layout</strong> with impactful action-verb bullet points</span>
+              </li>
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>Custom content craft</strong> — highlights your actual college projects & technical skills</span>
+              </li>
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>24-48hr turnaround</strong> with same-day express options available</span>
+              </li>
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>2 free revisions included</strong> with delivered DOCX + PDF files</span>
+              </li>
+            </ul>
+            <div class="service-card-footer">
+              <div class="service-price-tag">
+                <span>Starting from</span>
+                <span class="price-amount gradient-gold">Rs.200</span>
+              </div>
+              <a href="#resume-pricing" class="btn btn-gold btn-sm">Get Resume — from Rs.200 →</a>
+            </div>
+          </div>
+
+          <!-- Card 2: Website Building (Cyan Theme) -->
+          <div class="service-card card-website reveal-on-scroll">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <span class="section-tag tag-cyan" style="width: fit-content;">For Small Businesses &amp; Shops</span>
+            <h3 class="service-card-title">Website Building</h3>
+            <p class="service-card-desc">
+              Clean, mobile-first websites tailored for local shops, restaurants, cafes, salons, clinics, and professionals seeking trust and direct customer inquiries.
+            </p>
+            <ul class="service-features-list">
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>100% mobile-friendly</strong> — looks crisp and loads fast on smartphones & data networks</span>
+              </li>
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>SEO-friendly structure</strong> for local Google search discovery</span>
+              </li>
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>Domain &amp; hosting setup assistance</strong> included for 1 full year</span>
+              </li>
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>3 to 5 customized pages</strong> with interactive contact forms & WhatsApp click-to-chat</span>
+              </li>
+              <li class="service-feature-item">
+                <span class="feature-check">✓</span>
+                <span><strong>Monthly maintenance &amp; updates</strong> available so your business stays current</span>
+              </li>
+            </ul>
+            <div class="service-card-footer">
+              <div class="service-price-tag">
+                <span>Starting from</span>
+                <span class="price-amount gradient-cyan">Rs.3,000</span>
+              </div>
+              <a href="#website-pricing" class="btn btn-cyan-outline btn-sm">Get Website — from Rs.3,000 →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. About / Founder Section ("Why BuildBro?")
+         ======================================================================= -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-card reveal-on-scroll">
+          <div class="about-grid">
+            <div class="about-text-col">
+              <div class="about-badge">
+                <span>🎓 Meet The Founder</span>
+              </div>
+              <h2 class="about-title">Why BuildBro?</h2>
+              <div class="about-quote-box">
+                "I'm a college student who understands exactly what recruiters look for — because I've been through it myself. BuildBro started as a way to help fellow students and local businesses get professional, affordable work without the agency price tag."
+              </div>
+              <p class="about-text">
+                Most big digital agencies charge thousands for basic work and treat students or small neighborhood shops as afterthoughts. BuildBro takes the opposite route: personal 1-on-1 collaboration, transparent student-friendly pricing, and complete honesty.
+              </p>
+              <div class="about-pillars">
+                <div class="pillar-item">
+                  <span class="pillar-icon">🤝</span>
+                  <div class="pillar-text">
+                    <h4>Direct Communication</h4>
+                    <p>Work directly with me on WhatsApp, not an automated chatbot.</p>
+                  </div>
+                </div>
+                <div class="pillar-item">
+                  <span class="pillar-icon">🎯</span>
+                  <div class="pillar-text">
+                    <h4>ATS Placement Focus</h4>
+                    <p>Keywords tuned for IT mass recruiters and tech hiring tests.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Founder Card Profile Badge -->
+            <div class="about-founder-badge-card">
+              <div class="founder-avatar-circle" aria-hidden="true">
+                <img src="logo.png" alt="BuildBro Icon" class="founder-avatar-img" width="74" height="74">
+              </div>
+              <h3 class="founder-name">College Student &amp; Developer</h3>
+              <div class="founder-tag">Founder, BuildBro</div>
+              <p class="founder-pledge">
+                "We don't do fake reviews or inflated statistics. Real trust is built when you can preview your project first and only pay once you're 100% happy."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. Resume Pricing (4 Cards)
+         ======================================================================= -->
+    <section class="pricing-section" id="resume-pricing">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag tag-gold">Campus Placement Specials</span>
+          <h2 class="section-title">Resume Packages</h2>
+          <p class="section-subtitle">
+            Clean, ATS-ready resumes formatted for TCS, Infosys, Cognizant, Wipro, and high-growth tech companies.
+          </p>
+        </div>
+
+        <div class="pricing-grid-4">
+          <!-- Card 1: Basic Resume -->
+          <div class="pricing-card reveal-on-scroll">
+            <h3 class="pricing-tier-name">Basic Resume</h3>
+            <div class="pricing-tier-price gradient-gold">Rs.200</div>
+            <div class="pricing-tier-note">Single-page ATS standard</div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>ATS-friendly single column format</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>1-page placement layout</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Delivered in DOCX &amp; PDF</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>1 free revision included</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>24–48hr standard delivery</span>
+              </li>
+            </ul>
+            <a href="resume-form.html?package=basic" 
+               class="btn btn-outline-subtle btn-full">
+              Choose Basic
+            </a>
+          </div>
+
+          <!-- Card 2: Resume + Cover Letter -->
+          <div class="pricing-card reveal-on-scroll">
+            <h3 class="pricing-tier-name">Resume + Cover Letter</h3>
+            <div class="pricing-tier-price gradient-gold">Rs.400</div>
+            <div class="pricing-tier-note">Resume + tailored job letter</div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Everything in Basic Resume</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Custom tailored Cover Letter</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Matched styling &amp; fonts</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>2 free revisions included</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>24–48hr standard delivery</span>
+              </li>
+            </ul>
+            <a href="resume-form.html?package=cover-letter" 
+               class="btn btn-outline-subtle btn-full">
+              Choose Resume + Letter
+            </a>
+          </div>
+
+          <!-- Card 3: Resume + LinkedIn [POPULAR] -->
+          <div class="pricing-card featured-gold reveal-on-scroll">
+            <div class="popular-badge">MOST POPULAR</div>
+            <h3 class="pricing-tier-name">Resume + LinkedIn</h3>
+            <div class="pricing-tier-price gradient-gold">Rs.600</div>
+            <div class="pricing-tier-note">Complete recruiter profile bundle</div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Complete ATS Resume (DOCX+PDF)</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>LinkedIn profile headline rewrite</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Keyword-optimized About summary</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Project &amp; Skills re-structuring</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>2 free revisions included</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>24–48hr delivery</span>
+              </li>
+            </ul>
+            <a href="resume-form.html?package=linkedin" 
+               class="btn btn-gold btn-full">
+              Choose Resume + LinkedIn
+            </a>
+          </div>
+
+          <!-- Card 4: Full Package -->
+          <div class="pricing-card reveal-on-scroll">
+            <h3 class="pricing-tier-name">Full Package</h3>
+            <div class="pricing-tier-price gradient-gold">Rs.800</div>
+            <div class="pricing-tier-note">All-in-one placement career kit</div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>ATS-friendly Resume</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Custom Cover Letter</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Full LinkedIn Optimization</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Priority 1-on-1 support</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>2 free revisions included</span>
+              </li>
+            </ul>
+            <a href="resume-form.html?package=full" 
+               class="btn btn-outline-subtle btn-full">
+              Choose Full Package
+            </a>
+          </div>
+        </div>
+
+        <!-- Add-on Note -->
+        <div class="pricing-sub-note-bar reveal-on-scroll">
+          ⚡ <strong>Express delivery (same day):</strong> +₹100 &nbsp;|&nbsp; 🔄 <strong>Extra revision:</strong> ₹50
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. Website Pricing (2 Cards — No E-commerce)
+         ======================================================================= -->
+    <section class="pricing-section" id="website-pricing">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag tag-cyan">For Local Businesses &amp; Shops</span>
+          <h2 class="section-title">Website Packages</h2>
+          <p class="section-subtitle">
+            Modern, mobile-responsive websites to establish credibility and capture customers online.
+          </p>
+        </div>
+
+        <div class="pricing-grid-2">
+          <!-- Card 1: Starter Website -->
+          <div class="pricing-card reveal-on-scroll">
+            <h3 class="pricing-tier-name">Starter Website</h3>
+            <div class="pricing-tier-price gradient-cyan">Rs.3,000</div>
+            <div class="pricing-tier-note">Single-page modern online presence</div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>1-page responsive layout (Mobile, Tablet, Desktop)</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Interactive contact form &amp; click-to-call</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Basic on-page SEO for Google search</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Domain setup assistance (1 year)</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Fast 3–5 day delivery</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>2 free revision cycles</span>
+              </li>
+            </ul>
+            <a href="website-form.html?package=starter" 
+               class="btn btn-outline-subtle btn-full">
+              Get Starter Website
+            </a>
+          </div>
+
+          <!-- Card 2: Business Website [POPULAR] -->
+          <div class="pricing-card featured-cyan reveal-on-scroll">
+            <div class="popular-badge popular-badge-cyan">POPULAR</div>
+            <h3 class="pricing-tier-name">Business Website</h3>
+            <div class="pricing-tier-price gradient-cyan">Rs.6,000</div>
+            <div class="pricing-tier-note">Complete 3–5 page business platform</div>
+            <ul class="pricing-features-list">
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>3 to 5 customized pages (Home, About, Services, Gallery, Contact)</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Direct WhatsApp click-to-chat integration</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Full on-page SEO optimization &amp; meta tags</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>Domain &amp; hosting setup included for 1 year</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span>5–7 day delivery turnaround</span>
+              </li>
+              <li class="pricing-feature">
+                <span class="icon">✓</span>
+                <span><strong>1 month free maintenance</strong> &amp; text updates</span>
+              </li>
+            </ul>
+            <a href="website-form.html?package=business" 
+               class="btn btn-cyan-outline btn-full">
+              Get Business Website
+            </a>
+          </div>
+        </div>
+
+        <!-- Add-on Note -->
+        <div class="pricing-sub-note-bar pricing-sub-note-bar-cyan reveal-on-scroll">
+          🛠️ <strong>Monthly maintenance:</strong> ₹500–₹1,000/month &nbsp;|&nbsp; 📄 <strong>Extra pages:</strong> ₹500/page
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. How It Works (4 Steps)
+         ======================================================================= -->
+    <section class="process-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag tag-neutral">Simple &amp; Transparent</span>
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">
+            Zero complicated contracts or upfront financial commitments. Just 4 straightforward steps.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <!-- Step 1 -->
+          <div class="process-card reveal-on-scroll">
+            <div class="step-number-tag">01</div>
+            <h3 class="step-title">Share Details</h3>
+            <p class="step-desc">
+              Message us on WhatsApp with your rough notes, existing resume, or business requirements and photos.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-card reveal-on-scroll">
+            <div class="step-number-tag">02</div>
+            <h3 class="step-title">We Build It</h3>
+            <p class="step-desc">
+              We craft your ATS-friendly resume or code your mobile-first website with clean modern design principles.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-card reveal-on-scroll">
+            <div class="step-number-tag">03</div>
+            <h3 class="step-title">Preview &amp; Approve</h3>
+            <p class="step-desc">
+              Receive a watermarked draft or live test link. Request tweaks with your 2 free revisions included.
+            </p>
+          </div>
+
+          <!-- Step 4 (Highlighted) -->
+          <div class="process-card step-card-highlight reveal-on-scroll">
+            <div class="step-number-tag">04</div>
+            <h3 class="step-title">Pay &amp; Download</h3>
+            <p class="step-desc">
+              Receive your final clean DOCX + PDF or live website transfer right after preview approval.
+            </p>
+            <div class="step-highlight-box">
+              🔒 "Pay only after preview — see it, like it, then pay."
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         9. Testimonials (Honest Placeholder, NOT Fake)
+         ======================================================================= -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="testimonials-honest-card reveal-on-scroll">
+          <div class="stars-placeholder" aria-label="5 Star rating placeholder">
+            <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <svg class="star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <h3>Be one of our first clients! Reviews coming soon.</h3>
+          <p>
+            BuildBro is currently in its launch phase. We believe in earning genuine trust through quality work rather than publishing fake customer testimonials. With our "Pay After Preview" model, you have zero financial risk — see your finished draft before paying a single rupee.
+          </p>
+          <a href="https://wa.me/919025175386?text=Hi%20BuildBro!%20I'd%20like%20to%20be%20one%20of%20your%20first%20clients." 
+             class="btn btn-gold btn-sm" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             data-wa-package="general-enquiry">
+            Get Started with BuildBro →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         10. FAQ (8 Questions Accordion)
+         ======================================================================= -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag tag-neutral">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Everything you need to know about our resume formatting, website creation, and payment policies.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" type="button" aria-expanded="false">
+              <span>What is an ATS-friendly resume and why do I need one for placements?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                ATS stands for Applicant Tracking System. Top recruiters like TCS, Infosys, Cognizant, Wipro, and Accenture use automated bots to scan resumes before a human recruiter reviews them. Resumes made with fancy graphics, multiple columns, tables, or complex Canva icons often scramble the ATS scanner and get automatically rejected. BuildBro formats your resume with clean single-column hierarchy, standard ATS section titles, and keyword optimization to ensure 95%+ parsing success.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" type="button" aria-expanded="false">
+              <span>What is your typical delivery and turnaround time?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Standard delivery for resumes is 24 to 48 hours. If you have an urgent campus drive tomorrow morning, we offer Express Same-Day delivery for just +₹100. For websites, Starter Websites are delivered within 3–5 business days, and Business Websites within 5–7 days.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" type="button" aria-expanded="false">
+              <span>What is your revision policy if I need changes?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Every order comes with 2 free rounds of revisions. When you inspect your preview draft, you can ask for adjustments to bullet points, projects, fonts, or details. Additional revision rounds beyond the included two are available at a fair price of ₹50 per revision.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" type="button" aria-expanded="false">
+              <span>What information do I need to share to get started?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                For resumes: share your current resume or rough notes with your education marks, projects, technical skills, certifications, and contact details. For websites: send your business name, services list, phone number, address, and any existing photos or logo. Don't worry if it's messy — we will structure and polish everything for you.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" type="button" aria-expanded="false">
+              <span>How does the "Pay After Preview" model work?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                There is zero upfront advance payment required. We build your resume or draft website and send you a full preview draft. You review every section, request tweaks if needed, and once you approve it, you make the payment via UPI (Google Pay, PhonePe, Paytm, or QR code). Once paid, you receive your final, unwatermarked DOCX &amp; PDF files or live site transfer.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" type="button" aria-expanded="false">
+              <span>Are domain name and web hosting included in the website packages?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes! Both our Starter and Business website packages include full domain setup assistance for 1 year (.com or .in) and secure, fast cloud hosting setup with free SSL security (https://).
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" type="button" aria-expanded="false">
+              <span>How do you protect my data privacy and confidentiality?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Your personal details, phone number, academic records, and career documents are strictly 100% confidential. We never share, sell, or publicly showcase your personal resume details without your explicit written consent.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item reveal-on-scroll">
+            <button class="faq-question-btn" type="button" aria-expanded="false">
+              <span>Can I get both resume and website services together?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes! Many final-year students choose to build an online portfolio website to stand out alongside their ATS resume, or run freelance side ventures. Message us directly on WhatsApp and we will offer a custom combo bundle discount.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         11. Contact CTA Section (3 Visible Buttons)
+         ======================================================================= -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card reveal-on-scroll">
+          <h2 class="contact-headline">Ready to Get Started?</h2>
+          <p class="contact-subtext">
+            Send a message with your requirements. We’ll build your project first — review it before paying a single rupee.
+          </p>
+          
+          <div class="contact-buttons-group">
+            <!-- 1. WhatsApp (Primary, Gold, Largest) -->
+            <a href="https://wa.me/919025175386?text=Hi%20BuildBro!%20I'd%20like%20to%20get%20started%20with%20my%20project." 
+               class="btn btn-gold btn-whatsapp-primary" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               data-wa-package="general-enquiry">
+              💬 Chat on WhatsApp
+            </a>
+
+            <!-- 2. Instagram (Secondary, Cyan Outline) -->
+            <a href="https://instagram.com/buildbro.in" 
+               class="btn btn-cyan-outline" 
+               target="_blank" 
+               rel="noopener noreferrer">
+              📸 @buildbro.in
+            </a>
+
+            <!-- 3. Email (Secondary, Outline) -->
+            <a href="mailto:buildbro.service@gmail.com?subject=BuildBro%20Service%20Inquiry" 
+               class="btn btn-outline-subtle">
+              ✉️ Email Us
+            </a>
+          </div>
+
+          <div class="contact-privacy-note">
+            <span>🔒 Your information is 100% confidential and never shared.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       12. Footer (Logo, Links, Contact Row, Terms Note, Copyright)
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div>
+          <a href="#" class="brand-logo" aria-label="BuildBro Home">
+            <img src="logo.png" alt="BuildBro Logo" class="brand-logo-img" width="44" height="44">
+            <div class="brand-text-group">
+              <span class="brand-name"><span class="gradient-brand">BuildBro</span></span>
+              <span class="brand-tagline">RESUME · WEB</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            ATS-friendly resumes for placement students and modern mobile websites for small businesses. Honest craft with a pay-after-preview promise.
+          </p>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#services" class="footer-link">Services</a></li>
+            <li><a href="#about" class="footer-link">About Founder</a></li>
+            <li><a href="resume-form.html" class="footer-link">Get Resume Form</a></li>
+            <li><a href="website-form.html" class="footer-link">Get Website Form</a></li>
+            <li><a href="#resume-pricing" class="footer-link">Resume Packages</a></li>
+            <li><a href="#website-pricing" class="footer-link">Website Packages</a></li>
+            <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
+            <li><a href="#faq" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Direct Contact Links -->
+        <div>
+          <h4 class="footer-col-title">Direct Contact</h4>
+          <div class="footer-contact-row">
+            <a href="https://wa.me/919025175386" 
+               class="contact-info-link" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               data-wa-package="general-enquiry">
+              <span>💬 WhatsApp: +91 90251 75386</span>
+            </a>
+            <a href="https://instagram.com/buildbro.in" 
+               class="contact-info-link" 
+               target="_blank" 
+               rel="noopener noreferrer">
+              <span>📸 Instagram: @buildbro.in</span>
+            </a>
+            <a href="mailto:buildbro.service@gmail.com" 
+               class="contact-info-link">
+              <span>✉️ buildbro.service@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms Note -->
+      <div class="footer-terms-box">
+        <strong>Terms &amp; Revision Policy:</strong> 2 free revisions included. Additional revisions ₹50 each. Payment due after preview approval — please pay promptly once you approve the final preview.
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom-bar">
+        <div>
+          © 2025 BuildBro. All rights reserved.
+        </div>
+        <div>
+          Crafted for college students &amp; local businesses.
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div> <!-- End #site-wrapper -->
+
+  <!-- =========================================================================
+       13. Floating WhatsApp Button (56x56px, Green Circle, Safe Area Offset)
+       ========================================================================= -->
+  <a href="https://wa.me/919025175386?text=Hi%20BuildBro!%20I'd%20like%20to%20chat%20about%20your%20services." 
+     class="floating-whatsapp" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Chat with BuildBro on WhatsApp"
+     data-wa-package="general-enquiry">
+    <div class="floating-whatsapp-pulse" aria-hidden="true"></div>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.15c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.84-3.05-.2-.31c-.84-1.33-1.28-2.88-1.28-4.47 0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.54-3.7 8.24-8.25 8.24zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.02 2.57.12.17 1.76 2.68 4.25 3.76.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.22-.19-.47-.31z"/>
+    </svg>
+  </a>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>

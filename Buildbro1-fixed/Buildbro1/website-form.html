@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BuildBro — Website Intake Form</title>
+  <meta name="description" content="BuildBro Small Business Website Intake Form. Share your shop, clinic, restaurant, or brand details. Get your custom mobile-friendly website in 3-7 days. Pay only after preview.">
+  <meta name="theme-color" content="#0a0f1c">
+  
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Shared BuildBro Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="form-body">
+<div class="wrap">
+
+  <!-- Sticky Step Progress Bar -->
+  <div id="pbar" class="pbar-cyan">
+    <div class="ptext">
+      <span id="steptext"><b>Step 1 of 8</b> — Business info</span>
+      <span id="pcount">1 / 8</span>
+    </div>
+    <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+  </div>
+
+  <!-- Top Back Navigation Link -->
+  <a href="index.html" class="back-link back-link-cyan">← Back to BuildBro</a>
+
+  <!-- Header -->
+  <div class="header header-cyan">
+    <a href="index.html" aria-label="BuildBro Home">
+      <img src="logo.png" alt="BuildBro Logo" width="84" height="84">
+    </a>
+    <h1>Build<span>Bro</span></h1>
+    <div class="sub">RESUME · WEB</div>
+    <div class="tag">Website Intake Form — tell us about your business. Get your modern, mobile-friendly website in 3-7 days!</div>
+  </div>
+
+  <!-- How It Works Banner -->
+  <div class="steps steps-cyan">
+    <b>How it works:</b> 1) Fill the details below (3 mins). 2) Attach your photos, logo, or price card if available. 3) Tap SUBMIT! We build your draft website and send a live preview link in 3-7 days. <b>See it. Like it. Then pay</b> (Starter from Rs.3,000 · Business from Rs.6,000). 2 free revisions included!
+  </div>
+
+  <!-- Main Intake Form (Web3Forms) -->
+  <form id="websiteForm" method="POST" action="https://api.web3forms.com/submit" enctype="multipart/form-data">
+    <input type="hidden" name="access_key" value="f8c57a54-3aab-47cf-ad28-55754c427d7d">
+    <input type="hidden" name="subject" value="New Website Order - BuildBro">
+    <input type="hidden" name="from_name" value="BuildBro Website">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+    <!-- Step 1: Business Information -->
+    <div class="section section-cyan">
+      <h2><span class="n">1</span>Business Information</h2>
+      <label>Business / Shop / Brand Name *</label>
+      <input id="f_bizname" name="business_name" type="text" class="focus-cyan" required placeholder="e.g. Royal Cafe &amp; Bakery / Green Cross Clinic">
+      <div class="row">
+        <div>
+          <label>Owner / Contact Person *</label>
+          <input id="f_owner" name="owner_name" type="text" class="focus-cyan" required placeholder="e.g. Suthir Kumar">
+        </div>
+        <div>
+          <label>Phone / WhatsApp *</label>
+          <input id="f_phone" name="phone" type="tel" class="focus-cyan" required placeholder="98765 43210">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Email ID *</label>
+          <input id="f_email" name="email" type="email" class="focus-cyan" required placeholder="business@gmail.com">
+        </div>
+        <div>
+          <label>City, State *</label>
+          <input id="f_city" name="city" type="text" class="focus-cyan" required placeholder="e.g. Coimbatore, Tamil Nadu">
+        </div>
+      </div>
+      <label>Store Address / Google Maps link <span class="opt">(for local Google search &amp; map directions)</span></label>
+      <input id="f_address" name="address" type="text" class="focus-cyan" placeholder="Full shop address or Google Maps link">
+    </div>
+
+    <!-- Step 2: Business Category -->
+    <div class="section section-cyan">
+      <h2><span class="n">2</span>Business Category</h2>
+      <label>What type of business do you run? *</label>
+      <div class="radios wrap4" id="bizcategory">
+        <div class="radio-opt radio-opt-cyan sel" data-val="Restaurant / Cafe / Food" onclick="pick(this)">Restaurant / Cafe</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Retail Shop / Store" onclick="pick(this)">Retail Shop / Store</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Salon / Spa / Wellness" onclick="pick(this)">Salon / Spa / Beauty</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Clinic / Doctor / Dental" onclick="pick(this)">Clinic / Doctor / Health</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Coaching / Tuition / Classes" onclick="pick(this)">Coaching / Tuition</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Freelancer / Portfolio" onclick="pick(this)">Freelancer / Portfolio</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Real Estate / Home Services" onclick="pick(this)">Real Estate / Services</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Other Local Business" onclick="pick(this)">Other Business</div>
+      </div>
+      <input type="hidden" name="business_category" id="bizcategory_val" value="Restaurant / Cafe / Food">
+      <label>Brief description of your business in 1-2 lines *</label>
+      <textarea id="f_bizdesc" name="business_summary" class="focus-cyan" required placeholder="e.g. Premium unisex salon offering hair styling, facial treatments, and bridal makeovers in Saibaba Colony..."></textarea>
+    </div>
+
+    <!-- Step 3: Existing Online Presence -->
+    <div class="section section-cyan">
+      <h2><span class="n">3</span>Existing Online Presence</h2>
+      <label>Do you already have a website or domain?</label>
+      <div class="radios" id="existingsite">
+        <div class="radio-opt radio-opt-cyan sel" data-val="No — Brand New Site" onclick="pick(this)">No, brand new site</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Yes — Redesign Existing" onclick="pick(this)">Yes, redesign existing</div>
+      </div>
+      <input type="hidden" name="existing_website" id="existingsite_val" value="No — Brand New Site">
+      <label>Existing website URL <span class="opt">(if redesigning)</span></label>
+      <input id="f_siteurl" name="existing_url" type="text" class="focus-cyan" placeholder="https://mybusiness.com (or leave empty)">
+      <div class="row">
+        <div>
+          <label>Instagram Handle <span class="opt">(optional)</span></label>
+          <input id="f_instagram" name="instagram_handle" type="text" class="focus-cyan" placeholder="@yourbusiness">
+        </div>
+        <div>
+          <label>Facebook / Google Profile <span class="opt">(optional)</span></label>
+          <input id="f_social" name="facebook_or_google" type="text" class="focus-cyan" placeholder="link to page">
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Package & Core Pages -->
+    <div class="section section-cyan">
+      <h2><span class="n">4</span>Package Selection &amp; Pages</h2>
+      <label>Choose your BuildBro package *</label>
+      <div class="radios" id="pkgchoice">
+        <div class="radio-opt radio-opt-cyan sel" data-val="Starter Website (Rs.3,000)" onclick="pick(this)">
+          <strong>Starter Website</strong><br>
+          <span style="font-size:12px;opacity:0.85;">Rs.3,000 · 1-Page Responsive</span>
+        </div>
+        <div class="radio-opt radio-opt-cyan" data-val="Business Website (Rs.6,000)" onclick="pick(this)">
+          <strong>Business Website</strong><br>
+          <span style="font-size:12px;opacity:0.85;">Rs.6,000 · 3–5 Pages + 1 Mo Maint.</span>
+        </div>
+      </div>
+      <input type="hidden" name="package_choice" id="pkgchoice_val" value="Starter Website (Rs.3,000)">
+
+      <label>Which sections / pages do you want? *</label>
+      <div class="radios wrap4" id="pagesneeded">
+        <div class="radio-opt radio-opt-cyan sel" data-val="Home + Services + Contact" onclick="pick(this)">Home, Services, Contact</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Home + About + Services + Contact" onclick="pick(this)">+ About Us</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Home + About + Services + Gallery + Contact" onclick="pick(this)">+ Photo Gallery</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Full 5-Page (Home, About, Services, Gallery, Contact, FAQ)" onclick="pick(this)">Full 5-Page Suite</div>
+      </div>
+      <input type="hidden" name="pages_needed" id="pagesneeded_val" value="Home + Services + Contact">
+
+      <label>Need extra pages beyond the package? <span class="opt">(Add-on: Rs.500/page)</span></label>
+      <div class="radios wrap4" id="extrapages">
+        <div class="radio-opt radio-opt-cyan sel" data-val="None — Standard package pages" onclick="pick(this)">None (Package only)</div>
+        <div class="radio-opt radio-opt-cyan" data-val="+1 Extra Page (+Rs.500)" onclick="pick(this)">+1 Page (+Rs.500)</div>
+        <div class="radio-opt radio-opt-cyan" data-val="+2 Extra Pages (+Rs.1,000)" onclick="pick(this)">+2 Pages (+Rs.1,000)</div>
+        <div class="radio-opt radio-opt-cyan" data-val="3+ Extra Pages (Rs.500/page)" onclick="pick(this)">3+ Extra Pages</div>
+      </div>
+      <input type="hidden" name="extra_pages" id="extrapages_val" value="None — Standard package pages">
+    </div>
+
+    <!-- Step 5: Required Features -->
+    <div class="section section-cyan">
+      <h2><span class="n">5</span>Interactive Features Needed</h2>
+      <label>Direct WhatsApp click-to-chat button? *</label>
+      <div class="radios" id="wafeature">
+        <div class="radio-opt radio-opt-cyan sel" data-val="Yes (Recommended)" onclick="pick(this)">Yes (Instant WhatsApp Chat)</div>
+        <div class="radio-opt radio-opt-cyan" data-val="No" onclick="pick(this)">No</div>
+      </div>
+      <input type="hidden" name="whatsapp_feature" id="wafeature_val" value="Yes (Recommended)">
+
+      <label>Click-to-call mobile button &amp; Contact Form? *</label>
+      <div class="radios" id="callfeature">
+        <div class="radio-opt radio-opt-cyan sel" data-val="Yes (Both Form + Call Button)" onclick="pick(this)">Yes (Both Form + Call)</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Only Call Button" onclick="pick(this)">Only Call Button</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Only Form" onclick="pick(this)">Only Form</div>
+      </div>
+      <input type="hidden" name="contact_features" id="callfeature_val" value="Yes (Both Form + Call Button)">
+
+      <label>Interactive Google Maps location embed? *</label>
+      <div class="radios" id="mapsfeature">
+        <div class="radio-opt radio-opt-cyan sel" data-val="Yes (Embedded Map)" onclick="pick(this)">Yes (Embed Map)</div>
+        <div class="radio-opt radio-opt-cyan" data-val="No" onclick="pick(this)">No</div>
+      </div>
+      <input type="hidden" name="google_maps_feature" id="mapsfeature_val" value="Yes (Embedded Map)">
+    </div>
+
+    <!-- Step 6: Branding & Media Assets -->
+    <div class="section section-cyan">
+      <h2><span class="n">6</span>Photos, Logo &amp; Assets</h2>
+      <label class="upload-box" id="uploadBox" for="files" style="display:block;cursor:pointer">
+        <div class="icon">📷</div>
+        <div class="t1">Tap to attach your business photos &amp; logo</div>
+        <div class="t2">Logo image, storefront photos, work samples, menu or price card (under 5MB each)</div>
+        <input type="file" id="files" name="attachments" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,image/*" onchange="showFiles(this,'filelist')">
+        <div class="filelist" id="filelist"></div>
+      </label>
+      <div class="note"><b>Don't have professional photos or logo yet?</b> No worries! We can source high-quality royalty-free stock photos and design a clean modern wordmark logo for you.</div>
+      <label>Preferred brand colors or style reference <span class="opt">(optional)</span></label>
+      <input id="f_stylecolors" name="style_colors" type="text" class="focus-cyan" placeholder="e.g. Dark navy &amp; gold / Clean white &amp; emerald / Link to website you like">
+    </div>
+
+    <!-- Step 7: Content & Key Offerings -->
+    <div class="section section-cyan">
+      <h2><span class="n">7</span>Key Services &amp; Highlights</h2>
+      <label>List your top 3 to 6 services or products *</label>
+      <textarea id="f_services" name="services_list" class="focus-cyan" required placeholder="e.g. 1. Haircuts &amp; Styling, 2. Keratin Treatment, 3. Bridal Makeup, 4. Facials &amp; Cleanups..."></textarea>
+      
+      <label>Why should customers choose you? (Key highlights) <span class="opt">(optional)</span></label>
+      <textarea id="f_whyus" name="why_choose_us" class="focus-cyan" placeholder="e.g. In business for 8 years, over 2,000 happy clients, certified experts, 100% organic products..."></textarea>
+      
+      <label>Special offers, discounts, or seasonal promotions to feature <span class="opt">(optional)</span></label>
+      <input id="f_offers" name="special_offers" type="text" class="focus-cyan" placeholder="e.g. 20% off on first visit / Free consultation">
+    </div>
+
+    <!-- Step 8: Domain, Hosting & Launch -->
+    <div class="section section-cyan">
+      <h2><span class="n">8</span>Domain, Hosting &amp; Launch</h2>
+      <label>Preferred website domain name *</label>
+      <input id="f_domain" name="domain_preference" type="text" class="focus-cyan" required placeholder="e.g. royalcafe.in or drgreencross.com">
+      
+      <label>Do you already own this domain name? *</label>
+      <div class="radios" id="domainown">
+        <div class="radio-opt radio-opt-cyan sel" data-val="No — Need BuildBro to Set It Up" onclick="pick(this)">No, BuildBro sets it up</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Yes — I Own It on GoDaddy/Namecheap" onclick="pick(this)">Yes, I already own it</div>
+      </div>
+      <input type="hidden" name="domain_ownership" id="domainown_val" value="No — Need BuildBro to Set It Up">
+
+      <label>Target timeline to go live *</label>
+      <div class="radios" id="urgent">
+        <div class="radio-opt radio-opt-cyan sel" data-val="Standard (3–7 Days)" onclick="pick(this)">Standard (3–7 Days)</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Within 1–2 Weeks" onclick="pick(this)">Within 1–2 Weeks</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Flexible / Planning Ahead" onclick="pick(this)">Flexible / Planning Ahead</div>
+      </div>
+      <input type="hidden" name="target_timeline" id="urgent_val" value="Standard (3–7 Days)">
+
+      <label>Add ongoing monthly maintenance? <span class="opt">(Add-on: Rs.500–1,000/month)</span></label>
+      <div class="radios" id="maintopt">
+        <div class="radio-opt radio-opt-cyan sel" data-val="No, one-time setup only" onclick="pick(this)">No, one-time setup</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Basic Maintenance (+Rs.500/month updates &amp; backups)" onclick="pick(this)">Basic (+Rs.500/mo)</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Standard Maintenance (+Rs.1,000/month updates, backups &amp; priority edits)" onclick="pick(this)">Standard (+Rs.1,000/mo)</div>
+      </div>
+      <input type="hidden" name="monthly_maintenance" id="maintopt_val" value="No, one-time setup only">
+
+      <label>Preferred contact method? *</label>
+      <div class="radios" id="contactpref">
+        <div class="radio-opt radio-opt-cyan sel" data-val="WhatsApp" onclick="pick(this)">WhatsApp</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Call" onclick="pick(this)">Call</div>
+        <div class="radio-opt radio-opt-cyan" data-val="Email" onclick="pick(this)">Email</div>
+      </div>
+      <input type="hidden" name="contact_pref" id="contactpref_val" value="WhatsApp">
+    </div>
+
+    <div class="note" style="text-align:center">
+      🔒 <b>Pay only after preview</b> — we build your prototype website first. Review it on your smartphone and computer, request adjustments with your 2 free revisions, and pay only once fully satisfied!
+    </div>
+
+    <button class="btn-submit btn-submit-cyan" type="submit">SUBMIT WEBSITE INTAKE →</button>
+  </form>
+
+  <!-- Submission Success Card -->
+  <div id="success">
+    <h3>🎉 Website details submitted! We got your request.</h3>
+    <p>We will review your requirements and message you on WhatsApp within 24 hours to begin crafting your website draft. See it. Like it. Then pay!</p>
+    <div class="btn-row">
+      <button class="btn2 btn-wa" type="button" onclick="sendWA()">💬 Also Notify via WhatsApp</button>
+      <button class="btn2 btn-copy" type="button" onclick="copyText()">📋 Copy Summary</button>
+    </div>
+  </div>
+
+  <!-- Form Footer -->
+  <div class="footer">
+    <b>BuildBro</b> · See it. Like it. Then pay · 2 free revisions included · <span>@buildbro.in</span><br>
+    Starter Website from Rs.3,000 · Business Website from Rs.6,000<br>
+    All packages include 1 full year domain &amp; cloud hosting setup assistance.
+  </div>
+</div>
+
+<script>
+// Single-select radio option picker
+function pick(el) {
+  var sibs = el.parentElement.children;
+  for (var i = 0; i < sibs.length; i++) sibs[i].classList.remove('sel');
+  el.classList.add('sel');
+  var hiddenId = el.parentElement.id + '_val';
+  var h = document.getElementById(hiddenId);
+  if (h) h.value = el.getAttribute('data-val') || el.textContent.trim();
+  saveDraft();
+}
+
+// File attachment size validation
+var MAX_MB = 5;
+function showFiles(input, listId) {
+  var list = document.getElementById(listId);
+  var ok = [], bad = [];
+  for (var i = 0; i < input.files.length; i++) {
+    var f = input.files[i];
+    if (f.size > MAX_MB * 1024 * 1024) bad.push(f.name); else ok.push(f.name);
+  }
+  if (bad.length) {
+    list.textContent = '⚠ Too big (over ' + MAX_MB + 'MB): ' + bad.join(', ') + ' — please compress or send via WhatsApp';
+    list.classList.add('warn');
+    if (bad.length === input.files.length) input.value = '';
+    else list.textContent += ' (files under 5MB kept: ' + ok.join(', ') + ')';
+  } else if (ok.length) {
+    list.textContent = '✓ Attached: ' + ok.join(', ');
+    list.classList.remove('warn');
+  } else {
+    list.textContent = '';
+  }
+  var box = input.closest('.upload-box');
+  if (box) box.classList.add('sel');
+}
+
+// Format submission summary for WhatsApp or Clipboard
+function collectText() {
+  function val(id) { var e = document.getElementById(id); return e ? (e.value || '').trim() : ''; }
+  var t = 'BUILDBRO WEBSITE FORM\n====================\n' +
+    'Business: ' + val('f_bizname') + '\n' +
+    'Owner: ' + val('f_owner') + '\n' +
+    'Phone: ' + val('f_phone') + '\n' +
+    'Email: ' + val('f_email') + '\n' +
+    'City: ' + val('f_city') + '\n' +
+    'Category: ' + val('bizcategory_val') + '\n' +
+    'Package: ' + val('pkgchoice_val') + '\n' +
+    'Pages: ' + val('pagesneeded_val') + '\n' +
+    'Extra Pages: ' + val('extrapages_val') + '\n' +
+    'Preferred Domain: ' + val('f_domain') + ' (' + val('domainown_val') + ')\n' +
+    'Top Services: ' + val('f_services') + '\n' +
+    'Timeline: ' + val('urgent_val') + ' | Maint: ' + val('maintopt_val');
+  return t;
+}
+
+// Consistent WhatsApp number across BuildBro
+var WA_NUMBER = '919025175386';
+
+// Form submission handler
+document.getElementById('websiteForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var data = new FormData(form);
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+    .then(function(res) { return res.json().then(function(j) { if (!res.ok || !j.success) throw new Error(j.message || 'failed'); return j; }); })
+    .then(function() {
+      try { localStorage.removeItem(FORM_KEY); } catch (err) {}
+      form.style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+      document.getElementById('success').scrollIntoView({ behavior: 'smooth' });
+    })
+    .catch(function() {
+      alert('Form transmission failed. Please message us directly on WhatsApp!');
+    });
+});
+
+function sendWA() {
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(collectText()), '_blank');
+}
+
+function copyText() {
+  var txt = collectText();
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(function() { alert('Summary copied to clipboard!'); });
+  } else {
+    alert('Copied summary:\n\n' + txt);
+  }
+}
+
+// LocalStorage Draft Persistence
+var FORM_KEY = 'buildbro_website_draft';
+var saveTimer = null;
+
+function saveDraft() {
+  var d = {};
+  var els = document.querySelectorAll('#websiteForm input, #websiteForm textarea');
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    if (el.type === 'file') continue;
+    if (['form-name','bot-field','access_key','subject','from_name','botcheck'].indexOf(el.name) !== -1) continue;
+    d[el.id || el.name] = el.value;
+  }
+  try { localStorage.setItem(FORM_KEY, JSON.stringify(d)); } catch (e) {}
+}
+
+function restoreDraft() {
+  var d = {};
+  try { d = JSON.parse(localStorage.getItem(FORM_KEY) || '{}'); } catch (e) { return; }
+  var had = false;
+  Object.keys(d).forEach(function(k) {
+    var el = document.getElementById(k);
+    if (el && el.type !== 'file') { el.value = d[k]; had = true; }
+  });
+  ['bizcategory','existingsite','pkgchoice','pagesneeded','extrapages','wafeature','callfeature','mapsfeature','domainown','urgent','maintopt','contactpref'].forEach(function(g) {
+    var hv = document.getElementById(g + '_val');
+    if (hv && hv.value) {
+      var group = document.getElementById(g);
+      if (group) {
+        var kids = group.children;
+        for (var i = 0; i < kids.length; i++) {
+          var v = kids[i].getAttribute('data-val') || kids[i].textContent.trim();
+          kids[i].classList.toggle('sel', v === hv.value);
+        }
+      }
+    }
+  });
+  if (had) {
+    var n = document.createElement('div');
+    n.className = 'note';
+    n.style.margin = '14px 0';
+    n.innerHTML = '✅ <b>Draft restored</b> — your previous answers were safely restored. Attach photos again if needed.';
+    var stepsEl = document.querySelector('.steps');
+    if (stepsEl) stepsEl.after(n);
+  }
+}
+
+// Read URL "package" parameter and auto-select matching website package
+function applyUrlPackage() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var pkg = params.get('package');
+    if (!pkg) return;
+    pkg = pkg.toLowerCase().trim();
+    var group = document.getElementById('pkgchoice');
+    if (!group) return;
+    var options = group.children;
+    var targetEl = null;
+
+    for (var i = 0; i < options.length; i++) {
+      var opt = options[i];
+      var val = (opt.getAttribute('data-val') || '').toLowerCase();
+      if (
+        (pkg === 'starter' && val.indexOf('starter') !== -1) ||
+        (pkg === 'business' && val.indexOf('business') !== -1)
+      ) {
+        targetEl = opt;
+        break;
+      }
+    }
+
+    if (targetEl) {
+      pick(targetEl);
+    }
+  } catch (err) {}
+}
+
+function debounceSave() { clearTimeout(saveTimer); saveTimer = setTimeout(saveDraft, 400); }
+document.getElementById('websiteForm').addEventListener('input', debounceSave);
+document.getElementById('websiteForm').addEventListener('change', saveDraft);
+restoreDraft();
+applyUrlPackage();
+
+// Scroll Step Indicator
+var SECTIONS = document.querySelectorAll('.section');
+var STEP_NAMES = ['Business info','Category','Online presence','Package & pages','Features','Assets & style','Services','Domain & launch'];
+
+function updateStep() {
+  var y = window.scrollY + 160, idx = 0;
+  for (var i = 0; i < SECTIONS.length; i++) {
+    if (SECTIONS[i].offsetTop <= y) idx = i;
+  }
+  document.getElementById('steptext').innerHTML = '<b>Step ' + (idx + 1) + ' of ' + SECTIONS.length + '</b> — ' + STEP_NAMES[idx];
+  document.getElementById('pcount').textContent = (idx + 1) + ' / ' + SECTIONS.length;
+  document.getElementById('pfill').style.width = ((idx + 1) / SECTIONS.length * 100) + '%';
+}
+
+window.addEventListener('scroll', updateStep, { passive: true });
+window.addEventListener('load', updateStep);
+</script>
+</body>
+</html>
